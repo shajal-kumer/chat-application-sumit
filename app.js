@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const formData = require("express-form-data");
 
 // internal import
 const { notFoundHandler, errorHandler } = require("./middlewares/common/errorHandler");

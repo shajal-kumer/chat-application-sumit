@@ -9,18 +9,26 @@ function notFoundHandler(req, res, next) {
 function errorHandler(err, req, res, next) {
 	res.locals.error = process.env.NODE_ENV === "development" ? err : { message: err.message };
 
-	if (process.env.NODE_ENV === "development") {
-		console.log("Yes development");
-	}
+	// debuggin start
+	// console.log(process.env.NODE_ENV);
+
+	// if (process.env.NODE_ENV === "development") {
+	// 	console.log("Yes development");
+	// } else if (process.env.NODE_ENV === "production") {
+	// 	console.log("Yes Production");
+	// }
+	// debuggin end
 
 	res.status(err.status || 500);
 
 	if (res.locals.html) {
+		console.log(err);
 		// html response
 		res.render("error", {
 			title: "Error page",
 		});
 	} else {
+		console.log(err);
 		// json response
 		res.json(res.locals.error);
 	}
